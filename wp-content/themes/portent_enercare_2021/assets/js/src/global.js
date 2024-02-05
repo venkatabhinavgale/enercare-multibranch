@@ -849,10 +849,26 @@ window.addEventListener("load", createTableCaption);
 
 jQuery( function( $ ) {
 
-	// Accessibility for search
 	$( window ).on( 'load', function() {
+		
+		// Accessibility for search
 		$( 'input#wp-block-search__input-1' ).attr( 'title', 'Keywords for a site-wide search' );
 		$( 'input#wp-block-search__input-1' ).attr( 'aria-label', 'Keywords for a site-wide search' );
+
+		// Accessibility for slides
+		$( '.block-reviews__dots button.glider-dot' ).each( function( index ) {
+		this.setAttribute( 'aria-describedby', `Slide-${index + 1}` );
+		});
 	});
+
+	// Enercare & partner logo accessibility
+	$( '.ec-logo img' ).attr( 'alt', 'Enercare logo & Proud Partner logo' );
+
+	// Accessibility for Postal code field
+	$( '.block-location-finder__input' ).attr( 'aria-labelledby', 'Postal code input' );
+
+	// Accessibility for commerial page CTA
+	$( '.ec-cta-commercial a' ).attr( 'role', 'link' );
+	$( '.ec-cta-commercial a' ).attr( 'tabindex', '0' );
 
 });
